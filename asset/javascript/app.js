@@ -62,7 +62,7 @@ $("#trainInfoBtn").on("click", function(event) {
 
 	//uploads newTrain to firebase
 	database.ref().push(newTrain);
-		$("#name").val("");
+	$("#name").val("");
 	$("#dest").val("");
 	$("#firstTime").val("");
 	$("#freq").val("");
@@ -83,7 +83,7 @@ database.ref().on("child_added", function(childSnapshot, prevChildKey) {
 
 
 		//makes first train time neater
-		var trainTime = moment.unix(firstTime).format("hh:mm");
+		var trainTime = moment.unix(firstTime);
 		//calculate difference between times
 		var difference =  moment().diff(moment(trainTime),"minutes");
 
@@ -102,7 +102,7 @@ database.ref().on("child_added", function(childSnapshot, prevChildKey) {
    
 });
 
-//function(errorObject) {
+//functionthisError(errorObject) {
   //console.log("The read failed: " + errorObject.code);
 //}
 });
